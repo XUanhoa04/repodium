@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "toolVersion": "0.0.0",
+  "status": "success",
+  "stage": "OUTPUT",
+  "warningCodes": [],
+  "validation": {
+    "structural": "passed",
+    "browser": "not-run"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://repodium.dev/schemas/plan.v1.schema.json",
+  "title": "Repodium plan v1",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "projectId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+      "maxLength": 160
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+            "maxLength": 160
+          },
+          "layout": {
+            "enum": ["title", "bullets", "summary"]
+          },
+          "headingId": {
+            "enum": [
+              "repository-overview",
+              "structure",
+              "technology",
+              "limitations",
+              "context",
+              "engineering-decisions",
+              "features",
+              "roadmap"
+            ]
+          },
+          "phrases": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 8,
+            "items": {
+              "type": "object",
+              "properties": {
+                "claimId": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+                  "maxLength": 160
+                },
+                "templateId": {
+                  "enum": [
+                    "manifest-declares-dependency",
+                    "compose-declares-image",
+                    "documentation-quote"
+                  ]
+                }
+              },
+              "required": ["claimId", "templateId"],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": ["id", "layout", "headingId", "phrases"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["schemaVersion", "projectId", "slides"],
+  "additionalProperties": false
+}

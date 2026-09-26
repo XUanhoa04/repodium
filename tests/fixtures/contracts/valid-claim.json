@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "claim:pg",
+  "subject": "component:app",
+  "evidenceIds": ["evidence:pg"],
+  "confidence": "high",
+  "verificationRule": "manifest-dependency-literal/v1",
+  "predicate": "declares_dependency",
+  "object": {
+    "name": "pg",
+    "versionRange": "^8.0.0"
+  },
+  "scope": "manifest",
+  "epistemicKind": "observed"
+}

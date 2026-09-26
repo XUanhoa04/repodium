@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "evidence:pg",
+  "sourceKind": "repository",
+  "sourceId": "document:package",
+  "safePath": "package.json",
+  "locator": {
+    "kind": "json-pointer",
+    "value": "/dependencies/pg"
+  },
+  "sourceDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "extractorVersion": "node-manifest/v1"
+}

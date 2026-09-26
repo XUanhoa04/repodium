@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "projectId": "project:example",
+  "language": "vi",
+  "slides": [
+    {
+      "id": "slide:technology",
+      "layout": "bullets",
+      "blocks": [
+        {
+          "kind": "editorial-label",
+          "labelId": "technology"
+        },
+        {
+          "kind": "fact-phrase",
+          "claimId": "claim:pg",
+          "templateId": "manifest-declares-dependency"
+        }
+      ]
+    }
+  ]
+}

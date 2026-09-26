@@ -1,0 +1,33 @@
+name: Implementation task
+description: A bounded task under a roadmap phase
+title: '[Task] '
+body:
+  - type: input
+    id: parent
+    attributes:
+      label: Parent phase and task ID
+      placeholder: 'Phase 1 / P1.3 / #3'
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Task, reason, and affected component
+    validations:
+      required: true
+  - type: textarea
+    id: artifact
+    attributes:
+      label: Expected artifact
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Required tests and acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and blockers

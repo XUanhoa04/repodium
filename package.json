@@ -1,0 +1,54 @@
+{
+  "name": "repodium",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Turn repositories into presentations with claims you can trace.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "author": "XUanhoa04",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XUanhoa04/repodium.git"
+  },
+  "bugs": {
+    "url": "https://github.com/XUanhoa04/repodium/issues"
+  },
+  "homepage": "https://github.com/XUanhoa04/repodium#readme",
+  "engines": {
+    "node": ">=24 <25",
+    "npm": ">=11 <12"
+  },
+  "packageManager": "npm@11.19.0",
+  "bin": {
+    "repodium": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "schemas",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test tests/*.test.mjs",
+    "schemas:check": "node --test tests/contracts.test.mjs",
+    "docs:check": "node scripts/check-docs.mjs",
+    "package:check": "node scripts/check-package.mjs",
+    "audit:ci": "npm audit --audit-level=high",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run build && npm test && npm run docs:check && npm run package:check"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "24.19.0",
+    "ajv": "8.20.0",
+    "eslint": "10.11.0",
+    "prettier": "3.9.9",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.70.1"
+  }
+}

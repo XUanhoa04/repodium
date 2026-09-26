@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://repodium.dev/schemas/report.v1.schema.json",
+  "title": "Repodium report v1",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "toolVersion": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "status": {
+      "enum": ["success", "failed"]
+    },
+    "stage": {
+      "enum": [
+        "CONFIG",
+        "DISCOVERY",
+        "SCREENING",
+        "ANALYSIS",
+        "PLANNING",
+        "AI_GENERATION",
+        "RENDER",
+        "EXPORT",
+        "VALIDATION",
+        "OUTPUT"
+      ]
+    },
+    "warningCodes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z][A-Z0-9_]+$"
+      },
+      "maxItems": 100
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "structural": {
+          "enum": ["passed", "failed", "not-run"]
+        },
+        "browser": {
+          "enum": ["passed", "failed", "not-run"]
+        }
+      },
+      "required": ["structural", "browser"],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "toolVersion",
+    "status",
+    "stage",
+    "warningCodes",
+    "validation"
+  ],
+  "additionalProperties": false
+}

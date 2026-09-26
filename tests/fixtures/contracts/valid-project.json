@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "project:example",
+  "components": [
+    {
+      "id": "component:app",
+      "name": "Example"
+    }
+  ],
+  "evidence": [
+    {
+      "schemaVersion": 1,
+      "id": "evidence:pg",
+      "sourceKind": "repository",
+      "sourceId": "document:package",
+      "safePath": "package.json",
+      "locator": {
+        "kind": "json-pointer",
+        "value": "/dependencies/pg"
+      },
+      "sourceDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "extractorVersion": "node-manifest/v1"
+    }
+  ],
+  "claims": [
+    {
+      "schemaVersion": 1,
+      "id": "claim:pg",
+      "subject": "component:app",
+      "evidenceIds": ["evidence:pg"],
+      "confidence": "high",
+      "verificationRule": "manifest-dependency-literal/v1",
+      "predicate": "declares_dependency",
+      "object": {
+        "name": "pg",
+        "versionRange": "^8.0.0"
+      },
+      "scope": "manifest",
+      "epistemicKind": "observed"
+    }
+  ],
+  "coverage": {
+    "complete": true,
+    "visited": 1,
+    "admitted": 1,
+    "skipped": 0,
+    "reasonCodes": []
+  }
+}

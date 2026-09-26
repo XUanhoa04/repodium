@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "projectId": "project:example",
+  "slides": [
+    {
+      "id": "slide:technology",
+      "layout": "bullets",
+      "headingId": "technology",
+      "phrases": [
+        {
+          "claimId": "claim:pg",
+          "templateId": "manifest-declares-dependency"
+        }
+      ]
+    }
+  ]
+}

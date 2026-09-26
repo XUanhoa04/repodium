@@ -1,0 +1,230 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://repodium.dev/schemas/claim.v1.schema.json",
+  "title": "Repodium claim v1",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+          "maxLength": 160
+        },
+        "subject": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+          "maxLength": 160
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+            "maxLength": 160
+          },
+          "minItems": 1,
+          "maxItems": 1000,
+          "uniqueItems": true
+        },
+        "confidence": {
+          "enum": ["high", "medium", "low"]
+        },
+        "verificationRule": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "predicate": {
+          "const": "declares_dependency"
+        },
+        "object": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "versionRange": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            }
+          },
+          "required": ["name", "versionRange"],
+          "additionalProperties": false
+        },
+        "scope": {
+          "const": "manifest"
+        },
+        "epistemicKind": {
+          "const": "observed"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "subject",
+        "evidenceIds",
+        "confidence",
+        "verificationRule",
+        "predicate",
+        "object",
+        "scope",
+        "epistemicKind"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+          "maxLength": 160
+        },
+        "subject": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+          "maxLength": 160
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+            "maxLength": 160
+          },
+          "minItems": 1,
+          "maxItems": 1000,
+          "uniqueItems": true
+        },
+        "confidence": {
+          "enum": ["high", "medium", "low"]
+        },
+        "verificationRule": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "predicate": {
+          "const": "declares_container_image"
+        },
+        "object": {
+          "type": "object",
+          "properties": {
+            "repository": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "tag": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            }
+          },
+          "required": ["repository"],
+          "additionalProperties": false
+        },
+        "scope": {
+          "const": "compose_configuration"
+        },
+        "epistemicKind": {
+          "const": "observed"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "subject",
+        "evidenceIds",
+        "confidence",
+        "verificationRule",
+        "predicate",
+        "object",
+        "scope",
+        "epistemicKind"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+          "maxLength": 160
+        },
+        "subject": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+          "maxLength": 160
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+            "maxLength": 160
+          },
+          "minItems": 1,
+          "maxItems": 1000,
+          "uniqueItems": true
+        },
+        "confidence": {
+          "enum": ["high", "medium", "low"]
+        },
+        "verificationRule": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "predicate": {
+          "const": "documentation_states"
+        },
+        "object": {
+          "type": "object",
+          "properties": {
+            "approvedSpanId": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$",
+              "maxLength": 160
+            }
+          },
+          "required": ["approvedSpanId"],
+          "additionalProperties": false
+        },
+        "scope": {
+          "const": "documentation"
+        },
+        "epistemicKind": {
+          "const": "documented"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "subject",
+        "evidenceIds",
+        "confidence",
+        "verificationRule",
+        "predicate",
+        "object",
+        "scope",
+        "epistemicKind"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

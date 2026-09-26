@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://repodium.dev/schemas/config.v1.schema.json",
+  "title": "Repodium config v1",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "presentation": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": ["technical", "showcase", "academic", "product", "internal"]
+        },
+        "language": {
+          "enum": ["en", "vi"]
+        },
+        "maxSlides": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "preferredSections": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "context",
+              "structure",
+              "technology",
+              "engineering-decisions",
+              "features",
+              "roadmap"
+            ]
+          },
+          "uniqueItems": true,
+          "maxItems": 6
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "theme": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "enum": ["neutral"]
+        },
+        "typography": {
+          "enum": ["noto-sans"]
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "analysis": {
+      "type": "object",
+      "properties": {
+        "exclude": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "maxItems": 100
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    }
+  },
+  "required": ["schemaVersion"],
+  "additionalProperties": false
+}
